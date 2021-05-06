@@ -25,11 +25,11 @@ class LPD_clean(data.Dataset):
                 for track in multitriack:
                     #split the piano roll here
                     track_roll=torch.from_numpy(track.pianoroll)
-                    #split it to size 128*650
-                    after_split=track_roll.split(650,dim=0)
+                    #split it to size 128*648
+                    after_split=track_roll.split(648,dim=0)
                     #need to check here
                     for chunk in after_split:
-                        if chunk.size(0)==650:
+                        if chunk.size(0)==648:
                             self.data.append(chunk.unsqueeze(dim=0))
 
 
